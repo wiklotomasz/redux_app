@@ -6,7 +6,6 @@ export class Comments extends Component {
 
         this.postId = this.props.params.postId;
         this.submitHandler = this.submitHandler.bind(this);
-        this.removeCommentHandler = this.removeCommentHandler.bind(this);
     }
 
     renderComments(comments) {
@@ -16,15 +15,11 @@ export class Comments extends Component {
                     <p>
                         <strong>{comment.user}</strong>
                         {comment.text}
-                        <button onClick={this.removeCommentHandler.bind(null, index)} className="remove-comment">&times;</button>
+                        <button onClick={this.props.removeComment.bind(null, this.postId, index)} className="remove-comment">&times;</button>
                     </p>
                 </div>
             )
         })
-    }
-
-    removeCommentHandler(index) {
-        this.props.removeComment(this.postId, index);
     }
 
     submitHandler(event) {
