@@ -1,18 +1,21 @@
 import React, { Component } from 'react'
-import { useParams } from 'react-router'
 import Photo from './Photo'
+import Comments from './Comments';
 
 export class Single extends Component {
     render() {
-        const index = this.props.posts.findIndex((post) => {
-            return post.code === this.props.params.postId
+        const {postId} = this.props.params;
+        const postIndex = this.props.posts.findIndex((post) => {
+            return post.code === postId
         });
 
-        const item = this.props.posts[index];
+        const post = this.props.posts[postIndex];
+        const postComments = this.props.comments[postId] || [];
 
         return (
             <div className="single-photo">
-                <Photo {...this.props} key={item.id} i={item.id} post={item} />
+                <Photo {...this.props} key={post.id} i={post.id} post={post} />
+                <Comments {...this.props} comments={postComments} />
             </div>
         )
     }
