@@ -2,7 +2,7 @@ function posts(state = [], action) {
     if (action.type === 'INCREMENT_LIKES') {
         console.log('ff');
         const itemIndex = state.findIndex(item => item.id === action.index);
-        const newState = state;
+        const newState = [...state];
         newState[itemIndex].likes++;
         return newState;
     } else {
