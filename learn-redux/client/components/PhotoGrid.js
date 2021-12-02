@@ -6,7 +6,6 @@ export class PhotoGrid extends Component {
         return (
             <div className="photo-grid">
                 {this.props.posts.map((item, i) => {
-                    console.log('item', item);
                     return <Photo {...this.props} key={item.id} i={item.id} post={item} />
                 })}
             </div>

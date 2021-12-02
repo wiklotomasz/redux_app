@@ -6,7 +6,6 @@ import CSSTransitionGroup from 'react-addons-css-transition-group';
 export class Photo extends Component {
     render() {
         const {post, comments, i} = this.props;
-        {console.log('ee', this.props)}
         return (
             <figure className="grid-figure">
                 <div className="grid-photo-wrap">
