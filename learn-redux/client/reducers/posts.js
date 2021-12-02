@@ -8,7 +8,6 @@ function posts(state = [], action) {
         const newState = state;
         return newState;
     }
-
 }
 
 export default posts;
